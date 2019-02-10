@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "16.6.3",
-    "react-native": "0.58.4"
+    "react-native": "0.58.4",
+    "react-native-navigation": "^2.10.0"
   },
   "devDependencies": {
     "@rise-digital/eslint-config-rise": "^2.2.1",
