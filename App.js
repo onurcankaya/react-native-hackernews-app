@@ -1,35 +1,66 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
+import * as React from 'react'
+import { Navigation } from 'react-native-navigation'
+import { Provider } from 'react-redux'
 
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { configureStore } from './src/store'
+import RootLayout from './src/layouts/root'
+import LoginLayout from './src/layouts/login'
 
-type Props = {}
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>{`Hacker News`}</Text>
-      </View>
-    )
+const screens = {
+  'hackernews.layout.root': RootLayout,
+  'hackernews.layout.login': LoginLayout,
+}
+
+class App {
+  constructor() {
+    const store = configureStore()
+    this.registerScreens(store)
+  }
+
+  registerScreens(store: Object) {
+    Object.keys(screens).map((name) => {
+      Navigation.registerComponent(name, this.wrap(screens[name], store))
+    })
+  }
+
+  wrap(comp: any, store: Object) {
+    type Props = {
+      componentId: string,
+    }
+
+    /* eslint-disable */
+    return () => 
+      class extends React.Component<Props> {
+        render() {
+          return (
+            <Provider store={store}>
+              {React.createElement(comp, this.props)}
+            </Provider>
+          )
+        }
+      }
+  }
+  /* eslint-enable */
+
+  start() {
+    Navigation.events().registerAppLaunchedListener(() => {
+      Navigation.setDefaultOptions({
+        topBar: {
+          visible: false,
+          drawBehind: true,
+          animate: false,
+        },
+      })
+
+      Navigation.setRoot({
+        root: {
+          component: {
+            name: 'hackernews.layout.root',
+          },
+        },
+      })
+    })
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    justifyContent: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
-})
+export default App
