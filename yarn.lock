@@ -811,6 +811,11 @@
     eslint-plugin-react-native "^3.2.0"
     eslint-plugin-standard "^3.0.1"
 
+"@rise-digital/react-native-floating-label-text-input@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rise-digital/react-native-floating-label-text-input/-/react-native-floating-label-text-input-1.0.0.tgz#811592088bb4cbe0be4ebe84340bda522e56ccf9"
+  integrity sha512-EV7R/zPcKNT1VOzlY7xHzC6fg1bJpCgAK12mUXeqWai/L3sZ7tqIDs+Sq7m7g1TwMjPqnsKhuwYsYHMkAOXxkw==
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -5150,6 +5155,11 @@ react-lifecycles-compat@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
   integrity sha512-txfpPCQYiazVdcbMRhatqWKcAxJweUu2wDXvts5/7Wyp6+Y9cHojqXHsLPEckzutfHlxZhG8Oiundbmp8Fd6eQ==
+
+react-native-keyboard-aware-scrollview@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scrollview/-/react-native-keyboard-aware-scrollview-2.0.0.tgz#a7e2cc31b7230893db5dc05eb6fed3f358500a55"
+  integrity sha512-VAkwrmNl00bjTLXcvB3EMxuJ06kEBVRfpUq61X0Wl6Gdy1iSQpv04dVbZZ3KIflA9VhAlE0HFPltLLXIGjf2Ug==
 
 react-native-navigation@^2.10.0:
   version "2.10.0"

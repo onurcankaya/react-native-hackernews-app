@@ -21,14 +21,6 @@ const LoadingView = styled.View`
   justify-content: center;
 `
 
-const SpinnerContainer = styled.View`
-  background-color: #ffffff;
-  width: 110;
-  height: 110;
-  border-radius: 55;
-  margin: 30px;
-`
-
 type Props = {
   children?: React.Node,
   backgroundColor?: string,
@@ -44,9 +36,7 @@ class Screen extends React.PureComponent<Props> {
     return (
       <Container>
         <Content>{children}</Content>
-        {loading && (
-          <LoadingView>{`loading`}</LoadingView>
-        )}
+        {loading && <LoadingView>{`loading`}</LoadingView>}
       </Container>
     )
   }

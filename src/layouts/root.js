@@ -30,7 +30,6 @@ class RootLayout extends React.PureComponent {
   }
 
   onPressLogin = () => {
-    console.warn('onPressLogin')
     this.modal('hackernews.layout.login')
   }
 
@@ -42,7 +41,7 @@ class RootLayout extends React.PureComponent {
     return (
       <Screen>
         <NavigationHeader
-          title="Hacker News"
+          title="App"
           leftNavigationButton={
             <NavigationButton
               title={'Login'}
