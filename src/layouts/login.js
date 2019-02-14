@@ -18,8 +18,8 @@ const Button = styled.TouchableOpacity`
 `
 
 class LoginLayout extends React.PureComponent {
-  onChangeSearchQuery = (text) => {
-    console.warn(text)
+  onChangeSearchQuery = (query) => {
+    console.warn('this is NOT redux', query)
   }
 
   render() {
