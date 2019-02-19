@@ -25,7 +25,7 @@ type Props = {
   query: string,
 }
 
-class LoginLayout extends React.PureComponent<Props> {
+class SearchLayout extends React.PureComponent<Props> {
   onChangeSearchQuery = (query) => {
     this.props.dispatch(actions.setSearchQuery(query))
     console.warn(this.props.query)
@@ -55,4 +55,4 @@ const mapStateToProps = (state) => ({
   query: selectors.getSearchQuery(state),
 })
 
-export default connect(mapStateToProps)(LoginLayout)
+export default connect(mapStateToProps)(SearchLayout)

@@ -30,11 +30,11 @@ class RootLayout extends React.PureComponent {
   }
 
   onPressLogin = () => {
-    this.modal('hackernews.layout.login')
+    this.modal('hackernews.layout.search')
   }
 
   onPressSettings = () => {
-    console.warn('onPressSettings')
+    console.warn('settings')
   }
 
   render() {

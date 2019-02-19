@@ -4,11 +4,11 @@ import { Provider } from 'react-redux'
 
 import { configureStore } from './src/store'
 import RootLayout from './src/layouts/root'
-import LoginLayout from './src/layouts/login'
+import SearchLayout from './src/layouts/search'
 
 const screens = {
   'hackernews.layout.root': RootLayout,
-  'hackernews.layout.login': LoginLayout,
+  'hackernews.layout.search': SearchLayout,
 }
 
 class App {
