@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import styled from 'styled-components'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 
@@ -28,10 +28,19 @@ type Props = {
 class LoginLayout extends React.PureComponent<Props> {
   onChangeSearchQuery = (query) => {
     this.props.dispatch(actions.setSearchQuery(query))
-    console.warn(this.props.query)
+  }
+
+  onPressSearch = () => {
+    this.props.dispatch(actions.getSearchResults(this.props.query))
   }
 
   render() {
+    const { results } = this.props
+
+    if (!results) return null
+
+    console.warn('from inside the component: ', results)
+
     return (
       <KeyboardAwareScrollView>
         <Content>
@@ -42,9 +51,14 @@ class LoginLayout extends React.PureComponent<Props> {
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <Button>
+          <Button onPress={this.onPressSearch}>
             <Text>{`Search`}</Text>
           </Button>
+          <View>
+            {results.map((result, index) => (
+              <Text key={index}>{result.title}</Text>
+            ))}
+          </View>
         </Content>
       </KeyboardAwareScrollView>
     )
@@ -53,6 +67,7 @@ class LoginLayout extends React.PureComponent<Props> {
 
 const mapStateToProps = (state) => ({
   query: selectors.getSearchQuery(state),
+  results: selectors.getSearchResults(state),
 })
 
 export default connect(mapStateToProps)(LoginLayout)
