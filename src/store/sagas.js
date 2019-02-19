@@ -13,8 +13,6 @@ function* handleGetSearchResults(action) {
 
     const results = yield call(getSearchResults, query)
 
-    console.warn('from sagas:', results)
-
     yield put(actions.getSearchResultsSuccess({ results: results.data.hits }))
   } catch ({ error }) {
     yield put(actions.getSearchResultsError({ error }))

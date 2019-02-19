@@ -35,8 +35,6 @@ const search = (state = initialState, action) => {
     case types.GET_SEARCH_RESULTS_ERROR: {
       const { error } = action.payload
 
-      console.warn('error: ', error)
-
       return {
         ...state,
         error,

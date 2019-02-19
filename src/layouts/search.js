@@ -23,9 +23,10 @@ const Button = styled.TouchableOpacity`
 type Props = {
   dispatch: Function,
   query: string,
+  results: Array,
 }
 
-class LoginLayout extends React.PureComponent<Props> {
+class SearchLayout extends React.PureComponent<Props> {
   onChangeSearchQuery = (query) => {
     this.props.dispatch(actions.setSearchQuery(query))
   }
@@ -38,8 +39,6 @@ class LoginLayout extends React.PureComponent<Props> {
     const { results } = this.props
 
     if (!results) return null
-
-    console.warn('from inside the component: ', results)
 
     return (
       <KeyboardAwareScrollView>
@@ -70,4 +69,4 @@ const mapStateToProps = (state) => ({
   results: selectors.getSearchResults(state),
 })
 
-export default connect(mapStateToProps)(LoginLayout)
+export default connect(mapStateToProps)(SearchLayout)
